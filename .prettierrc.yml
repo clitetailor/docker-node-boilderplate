@@ -1,0 +1,4 @@
+parser: babylon
+printWidth: 64
+semi: false
+singleQuote: true
