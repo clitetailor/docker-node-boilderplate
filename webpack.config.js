@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -27,6 +28,14 @@ module.exports = {
       {
         test: /.html$/,
         use: 'html-loader'
+      },
+      {
+        test: /.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: 'file-loader'
       }
     ]
   },
@@ -37,6 +46,7 @@ module.exports = {
   },
 
   plugins: [
+    new FaviconsWebpackPlugin('favicon.png'),
     new ManifestPlugin(),
     new webpack.HashedModuleIdsPlugin({
       hashFunction: 'sha256',
