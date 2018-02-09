@@ -1,10 +1,12 @@
 {
   "name": "docker-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Docker-Node App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --optimize-minimize --progress --config webpack.config.js",
+    "start": "node index.js",
+    "build": "webpack --optimize-minimize --progress --config webpack.config.js",
+    "docker": "npm run build && docker build . -t docker-node-app --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "clitetailor",
